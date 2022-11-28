@@ -7,5 +7,15 @@
     Things
   </h1>
   <p>Some stuff about things goes here.</p>
+  <form action="/" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+    </div>
+    {% endfor %}
+    <input type="submit" value="Submit">
+  </form>
 </body>
 </html>
