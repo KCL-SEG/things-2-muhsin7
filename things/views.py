@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from .forms import ThingsForm
+from .forms import ThingForm
 from .models import Thing
 
 def home(request):
-    form = ThingsForm()
+    form = ThingForm()
     if(request.method == 'POST'):
-        form = ThingsForm(request.POST)
+        form = ThingForm(request.POST)
         if(form.is_valid()):
             name = form.cleaned_data.get('name')
             description = form.cleaned_data.get('description')
